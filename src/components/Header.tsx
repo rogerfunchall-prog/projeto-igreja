@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { igreja } from "@/data/igreja";
 import { ministerios } from "@/data/ministerios";
+import { Logo } from "./Logo";
 import {
   IconeEnvelope,
   IconeFacebook,
@@ -306,35 +307,5 @@ export function Header() {
         </nav>
       </div>
     </header>
-  );
-}
-
-/** Marca da igreja — símbolo do sal (losango) + luz (chama) em terracota */
-function Logo() {
-  return (
-    <Link
-      href="/"
-      className="flex shrink-0 items-center gap-3"
-      aria-label="Comunhão Sal e Luz — página inicial"
-    >
-      <span className="flex h-11 w-11 items-center justify-center bg-terracota-500">
-        <svg
-          viewBox="0 0 24 24"
-          className="h-6 w-6 text-white"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path d="M12 2c2.8 3.4 5.5 6 5.5 9.6A5.5 5.5 0 0 1 12 17a5.5 5.5 0 0 1-5.5-5.4C6.5 8 9.2 5.4 12 2Zm0 4.6c-1.4 1.9-3 3.4-3 5a3 3 0 0 0 6 0c0-1.6-1.6-3.1-3-5ZM7 19h10v2H7v-2Z" />
-        </svg>
-      </span>
-      <span className="leading-none">
-        <span className="block font-display text-xl text-tinta">
-          Comunhão
-        </span>
-        <span className="block text-[0.7rem] font-bold uppercase tracking-[0.3em] text-terracota-500">
-          Sal e Luz
-        </span>
-      </span>
-    </Link>
   );
 }
