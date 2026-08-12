@@ -130,8 +130,8 @@ export default function QuemSomos() {
           <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,340px)_1fr] lg:items-center">
             <div className="relative aspect-3/4 overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=70"
-                alt="[PLACEHOLDER] Foto do Bispo Cláudio Gonçalves, líder do Ministério Comunhão Sal e Luz"
+                src="/lideranca-bispo-claudio-goncalves.jpg"
+                alt={`${igreja.lideranca.nome}, ${igreja.lideranca.cargo.toLowerCase()} da Comunhão Sal e Luz, ministrando durante um culto`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 340px"
                 className="object-cover"

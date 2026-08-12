@@ -139,7 +139,7 @@ Nada institucional foi inventado. Itens a confirmar com a igreja:
 **`src/app/quem-somos/page.tsx`**
 - [ ] História da igreja
 - [ ] Visão, missão e valores
-- [ ] Biografia do Bispo Cláudio Gonçalves (nome e cargo já preenchidos em `src/data/igreja.ts`)
+- [ ] Biografia do Bispo Cláudio Gonçalves (nome, cargo e foto já preenchidos)
 - [ ] Demais membros do corpo pastoral, se a igreja quiser listar
 - [ ] Texto confirmado sobre a base missionária em Tarrafas–CE
 - [ ] Texto confirmado sobre o apoio à comunidade terapêutica
@@ -147,8 +147,10 @@ Nada institucional foi inventado. Itens a confirmar com a igreja:
 **`src/app/contribua/page.tsx`**
 - [ ] QR Code do Pix
 
-**Fotografia** — todas as imagens são placeholders (Unsplash) e estão marcadas
-com `[PLACEHOLDER]` nos textos `alt`. Substituir por fotos reais da comunidade.
+**Fotografia** — imagens reais já no projeto: logo da igreja e retrato do
+Bispo Cláudio Gonçalves. As demais continuam sendo placeholders do Unsplash,
+marcadas com `[PLACEHOLDER]` nos textos `alt` — substituir por fotos reais da
+comunidade (ministérios, galerias, eventos, hero).
 
 ---
 
