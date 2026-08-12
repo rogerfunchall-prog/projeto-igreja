@@ -75,6 +75,12 @@ const schemaChurch = {
     addressCountry: "BR",
   },
   sameAs: [igreja.redes.instagram, igreja.redes.facebook, igreja.redes.youtube],
+  employee: {
+    "@type": "Person",
+    name: igreja.lideranca.nome,
+    jobTitle: igreja.lideranca.cargo,
+  },
+  logo: `${igreja.site}/logo-comunhao-sal-e-luz.png`,
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday"],

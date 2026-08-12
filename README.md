@@ -139,7 +139,8 @@ Nada institucional foi inventado. Itens a confirmar com a igreja:
 **`src/app/quem-somos/page.tsx`**
 - [ ] História da igreja
 - [ ] Visão, missão e valores
-- [ ] Nome e biografia do pastor titular
+- [ ] Biografia do Bispo Cláudio Gonçalves (nome e cargo já preenchidos em `src/data/igreja.ts`)
+- [ ] Demais membros do corpo pastoral, se a igreja quiser listar
 - [ ] Texto confirmado sobre a base missionária em Tarrafas–CE
 - [ ] Texto confirmado sobre o apoio à comunidade terapêutica
 

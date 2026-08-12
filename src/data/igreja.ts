@@ -36,6 +36,12 @@ export const igreja = {
     youtube: "https://www.youtube.com/@comunhaosaleluz",
   },
 
+  /** Liderança à frente do ministério */
+  lideranca: {
+    cargo: "Líder do Ministério",
+    nome: "Bispo Cláudio Gonçalves",
+  },
+
   /** Chave Pix para dízimos e ofertas */
   pix: {
     chave: "[PREENCHER: chave Pix]",

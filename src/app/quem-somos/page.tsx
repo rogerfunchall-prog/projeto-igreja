@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { TituloSecao } from "@/components/TituloSecao";
 import { CTASection } from "@/components/CTASection";
 import { Botao } from "@/components/Botao";
+import { igreja } from "@/data/igreja";
 
 export const metadata: Metadata = {
   title: "Quem Somos",
@@ -130,7 +131,7 @@ export default function QuemSomos() {
             <div className="relative aspect-3/4 overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=70"
-                alt="[PLACEHOLDER] Foto do pastor titular da Comunhão Sal e Luz"
+                alt="[PLACEHOLDER] Foto do Bispo Cláudio Gonçalves, líder do Ministério Comunhão Sal e Luz"
                 fill
                 sizes="(max-width: 1024px) 100vw, 340px"
                 className="object-cover"
@@ -139,19 +140,17 @@ export default function QuemSomos() {
 
             <div>
               <span className="text-[0.72rem] font-bold uppercase tracking-[0.18em] text-terracota-500">
-                Pastor titular
+                {igreja.lideranca.cargo}
               </span>
-              <h3 className="mt-2 text-3xl">
-                [PREENCHER: nome do pastor titular]
-              </h3>
+              <h3 className="mt-2 text-3xl">{igreja.lideranca.nome}</h3>
               <div className="mt-5 space-y-4 text-lg text-tinta-suave">
                 <p>
                   [PREENCHER: biografia curta — tempo de ministério, formação,
                   família, chamado.]
                 </p>
                 <p>
-                  [PREENCHER: mensagem de boas-vindas do pastor aos visitantes
-                  do site.]
+                  [PREENCHER: mensagem de boas-vindas do Bispo Cláudio aos
+                  visitantes do site.]
                 </p>
               </div>
 
