@@ -155,13 +155,27 @@ export function Footer() {
 
       {/* --- Barra de copyright --- */}
       <div className="border-t border-white/10">
-        <div className="container-site flex flex-col items-center justify-between gap-3 py-6 text-[0.8rem] sm:flex-row">
+        <div className="container-site flex flex-col items-center gap-3 py-6 text-center text-[0.8rem] sm:flex-row sm:justify-between sm:text-left">
           <p>
             © {new Date().getFullYear()} {igreja.nome}. Todos os direitos
             reservados.
           </p>
+
           <p className="font-script text-xl text-terracota-400">
             {igreja.hashtag}
+          </p>
+
+          {/* Crédito de desenvolvimento */}
+          <p>
+            Site desenvolvido por{" "}
+            <a
+              href="https://www.ghanks.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-sublinhado font-medium text-white transition-colors hover:text-terracota-400"
+            >
+              G Hanks
+            </a>
           </p>
         </div>
       </div>
