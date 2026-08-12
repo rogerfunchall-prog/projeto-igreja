@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+/*
+  ============================================================
+  DESIGN SYSTEM — Comunhão Sal e Luz
+  Base visual reproduzida do template Nazareth (Axiom Themes):
+    - Display serifada  : Yeseva One
+    - Corpo             : Roboto
+    - Acento manuscrito : Reenie Beanie
+  Paleta escolhida: TERRACOTA + OFF-WHITE (creme) + AZUL PROFUNDO
+  (ver README para as outras 2 paletas avaliadas)
+  ============================================================
+*/
+
+@theme {
+  /* --- Cores de marca --- */
+  --color-terracota-50: #fef6f1;
+  --color-terracota-100: #fde8dc;
+  --color-terracota-200: #fbcdb2;
+  --color-terracota-300: #f8a97f;
+  --color-terracota-400: #f5854f;
+  --color-terracota-500: #f26837; /* acento principal (Nazareth) */
+  --color-terracota-600: #d94f20;
+  --color-terracota-700: #b23c18;
+  --color-terracota-800: #8c3115;
+  --color-terracota-900: #6b2812;
+
+  /* --- Azul profundo (secundário / rodapé) --- */
+  --color-profundo-50: #f2f5f8;
+  --color-profundo-100: #dde5ed;
+  --color-profundo-200: #b8c8d9;
+  --color-profundo-300: #8aa3bd;
+  --color-profundo-400: #547d9c;
+  --color-profundo-500: #2f4f70;
+  --color-profundo-600: #223c58;
+  --color-profundo-700: #192d43;
+  --color-profundo-800: #12212f; /* fundo escuro */
+  --color-profundo-900: #0d1720;
+
+  /* --- Neutros quentes --- */
+  --color-creme-50: #fffdf9;
+  --color-creme-100: #fffaf2; /* off-white do template */
+  --color-creme-200: #f7f0e6;
+  --color-creme-300: #e9dfd1;
+  --color-bronze: #cd7f32;
+  --color-tinta: #241f1c; /* texto principal (marrom quase preto) */
+  --color-tinta-suave: #5c534d;
+
+  /* --- Tipografia --- */
+  --font-display: var(--font-yeseva), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-roboto), system-ui, -apple-system, sans-serif;
+  --font-script: var(--font-reenie), "Comic Sans MS", cursive;
+
+  /* Escala generosa: público 60+ precisa de corpo legível */
+  --text-base: 1.0625rem; /* 17px */
+  --text-lg: 1.1875rem;
+
+  --radius-card: 0.25rem;
+
+  --animate-fade-up: fade-up 0.7s ease-out both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-creme-100);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.75;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--color-tinta);
+  }
+
+  /* Foco visível em toda a navegação por teclado (acessibilidade AA) */
+  :focus-visible {
+    outline: 3px solid var(--color-terracota-500);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* ============================================================
+   UTILITÁRIOS DO TEMA
+   ============================================================ */
+@utility container-site {
+  width: 100%;
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* "Eyebrow" — rótulo manuscrito acima dos títulos (assinatura do Nazareth) */
+@utility eyebrow {
+  display: inline-block;
+  font-family: var(--font-script);
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--color-terracota-500);
+}
+
+@utility link-sublinhado {
+  position: relative;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+  &:hover {
+    background-size: 100% 1px;
+  }
+}
