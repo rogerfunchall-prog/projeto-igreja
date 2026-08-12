@@ -131,8 +131,10 @@ Nada institucional foi inventado. Itens a confirmar com a igreja:
 **`src/data/eventos.ts`**
 - [ ] Eventos reais (títulos, datas, horários, locais, descrições)
 
-**`src/data/videos.ts`**
-- [ ] IDs dos 3 vídeos mais recentes do canal do YouTube
+**`src/data/videos.ts`** — ✅ concluído
+- 4 vídeos reais do canal `@comunhaosaleluz` (IDs, títulos, preletor e datas
+  de publicação obtidos do próprio canal). Para adicionar um vídeo novo, basta
+  incluir o ID no topo da lista.
 
 **`src/app/quem-somos/page.tsx`**
 - [ ] História da igreja
@@ -157,6 +159,8 @@ com `[PLACEHOLDER]` nos textos `alt`. Substituir por fotos reais da comunidade.
 - Slider do hero respeita `prefers-reduced-motion` e pausa no hover/foco
 - Um único `<h1>` por página, hierarquia de headings correta
 - `next/image` com `sizes` e `priority` apenas no above-the-fold
+- Vídeos do YouTube usam **facade** (`PlayerYoutube`): carrega só a capa e
+  injeta o iframe no clique — evita ~1 MB de scripts do YouTube por vídeo
 - Todas as 19 rotas são estáticas (SSG) — First Load JS ~103 kB compartilhado
 
 ## SEO

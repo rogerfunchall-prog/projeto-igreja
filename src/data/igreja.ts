@@ -33,7 +33,7 @@ export const igreja = {
   redes: {
     instagram: "https://instagram.com/comunhaosaleluz",
     facebook: "https://facebook.com/comunhaosaleluz",
-    youtube: "https://youtube.com/comunhaosaleluz",
+    youtube: "https://www.youtube.com/@comunhaosaleluz",
   },
 
   /** Chave Pix para dízimos e ofertas */

@@ -6,17 +6,17 @@ import { Botao } from "@/components/Botao";
 import { MinistryCard } from "@/components/MinistryCard";
 import { EventCard } from "@/components/EventCard";
 import { CTASection } from "@/components/CTASection";
+import { PlayerYoutube } from "@/components/PlayerYoutube";
 import {
   IconeEnvelope,
   IconePin,
-  IconePlay,
   IconeRelogio,
   IconeSeta,
 } from "@/components/Icones";
 import { igreja, horariosCulto } from "@/data/igreja";
 import { ministerios } from "@/data/ministerios";
 import { eventos } from "@/data/eventos";
-import { videos, videoValido } from "@/data/videos";
+import { videos, formatarDataVideo } from "@/data/videos";
 
 /**
  * HOME — segue a mesma sequência de seções do template Nazareth:
@@ -176,44 +176,23 @@ export default function Home() {
           </div>
 
           <div className="mt-14 grid gap-8 lg:grid-cols-3">
-            {videos.map((video) => (
+            {videos.slice(0, 3).map((video) => (
               <article
                 key={video.id}
-                className="group border border-tinta/10 bg-white"
+                className="flex flex-col border border-tinta/10 bg-white"
               >
                 <div className="relative aspect-16/9 bg-profundo-800">
-                  {videoValido(video.id) ? (
-                    <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${video.id}`}
-                      title={video.titulo}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      loading="lazy"
-                      className="absolute inset-0 h-full w-full"
-                    />
-                  ) : (
-                    // Placeholder visível enquanto os IDs reais não forem preenchidos
-                    <a
-                      href={igreja.redes.youtube}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-white/70 transition-colors hover:text-white"
-                    >
-                      <span className="flex h-14 w-14 items-center justify-center rounded-full bg-terracota-500 text-white">
-                        <IconePlay className="h-6 w-6" />
-                      </span>
-                      <span className="px-6 text-center text-sm">
-                        [PREENCHER: ID do vídeo do YouTube]
-                      </span>
-                    </a>
-                  )}
+                  <PlayerYoutube id={video.id} titulo={video.titulo} />
                 </div>
 
                 <div className="p-6">
                   <p className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-bronze">
-                    {video.data}
+                    {formatarDataVideo(video.data)}
                   </p>
                   <h3 className="mt-2 text-xl">{video.titulo}</h3>
+                  <p className="mt-2 text-sm text-tinta-suave">
+                    {video.preletor}
+                  </p>
                 </div>
               </article>
             ))}

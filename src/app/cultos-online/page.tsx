@@ -3,9 +3,10 @@ import { PageHero } from "@/components/PageHero";
 import { TituloSecao } from "@/components/TituloSecao";
 import { Botao } from "@/components/Botao";
 import { CTASection } from "@/components/CTASection";
-import { IconePin, IconePlay, IconeRelogio } from "@/components/Icones";
+import { IconePin, IconeRelogio, IconeSeta } from "@/components/Icones";
+import { PlayerYoutube } from "@/components/PlayerYoutube";
 import { igreja, horariosCulto } from "@/data/igreja";
-import { videos, videoValido } from "@/data/videos";
+import { videos, formatarDataVideo, urlVideo } from "@/data/videos";
 
 export const metadata: Metadata = {
   title: "Cultos Online",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function CultosOnline() {
-  const destaque = videos[0];
+  const [destaque, ...anteriores] = videos;
 
   return (
     <>
@@ -33,35 +34,37 @@ export default function CultosOnline() {
           <TituloSecao
             eyebrow="Última mensagem"
             titulo="Assista ao culto mais recente"
-            descricao="O player abaixo carrega o vídeo mais recente do canal. Substitua os IDs em src/data/videos.ts pelos vídeos reais."
+            descricao="Direto do nosso canal no YouTube. Clique para assistir sem sair do site."
           />
 
-          <div className="mt-12 overflow-hidden border border-tinta/10 bg-profundo-800">
+          <div className="mt-12 border border-tinta/10 bg-profundo-800">
             <div className="relative aspect-16/9">
-              {videoValido(destaque.id) ? (
-                <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${destaque.id}`}
-                  title={destaque.titulo}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 h-full w-full"
-                />
-              ) : (
-                <a
-                  href={igreja.redes.youtube}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-white/70 transition-colors hover:text-white"
-                >
-                  <span className="flex h-20 w-20 items-center justify-center rounded-full bg-terracota-500 text-white">
-                    <IconePlay className="h-8 w-8" />
-                  </span>
-                  <span className="max-w-md px-6 text-center">
-                    [PREENCHER: ID do vídeo mais recente do canal
-                    youtube.com/comunhaosaleluz]
-                  </span>
-                </a>
-              )}
+              <PlayerYoutube
+                id={destaque.id}
+                titulo={destaque.titulo}
+                prioridade
+              />
+            </div>
+
+            <div className="flex flex-col gap-3 p-7 sm:flex-row sm:items-center sm:justify-between lg:px-9">
+              <div>
+                <p className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-terracota-400">
+                  {formatarDataVideo(destaque.data)} · {destaque.preletor}
+                </p>
+                <h3 className="mt-2 font-display text-2xl text-white lg:text-3xl">
+                  {destaque.titulo}
+                </h3>
+              </div>
+
+              <a
+                href={urlVideo(destaque.id)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex shrink-0 items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-terracota-400"
+              >
+                Abrir no YouTube
+                <IconeSeta className="h-4 w-4" />
+              </a>
             </div>
           </div>
 
@@ -86,32 +89,33 @@ export default function CultosOnline() {
           />
 
           <div className="mt-12 grid gap-8 lg:grid-cols-3">
-            {videos.map((video) => (
+            {anteriores.map((video) => (
               <article
                 key={video.id}
-                className="border border-tinta/10 bg-creme-50"
+                className="flex flex-col border border-tinta/10 bg-creme-50"
               >
                 <div className="relative aspect-16/9 bg-profundo-800">
-                  {videoValido(video.id) ? (
-                    <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${video.id}`}
-                      title={video.titulo}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      loading="lazy"
-                      className="absolute inset-0 h-full w-full"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center px-4 text-center text-sm text-white/60">
-                      [PREENCHER: ID do vídeo]
-                    </div>
-                  )}
+                  <PlayerYoutube id={video.id} titulo={video.titulo} />
                 </div>
-                <div className="p-6">
+
+                <div className="flex flex-1 flex-col p-6">
                   <p className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-bronze">
-                    {video.data}
+                    {formatarDataVideo(video.data)}
                   </p>
                   <h3 className="mt-2 text-xl">{video.titulo}</h3>
+                  <p className="mt-2 text-sm text-tinta-suave">
+                    {video.preletor}
+                  </p>
+
+                  <a
+                    href={urlVideo(video.id)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto inline-flex items-center gap-2 pt-5 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-terracota-600 transition-colors hover:text-terracota-700"
+                  >
+                    Abrir no YouTube
+                    <IconeSeta className="h-4 w-4" />
+                  </a>
                 </div>
               </article>
             ))}
